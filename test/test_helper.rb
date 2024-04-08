@@ -12,4 +12,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  # ログインしているか確認
+  def is_logged_in?
+    #セッションのuser_idがnilかどうかで判定
+    !session[:user_id].nil?
+  end
 end
