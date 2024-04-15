@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CreateToken
+module CreateTokenAndDigest
   def create_token_by_base64
     SecureRandom.urlsafe_base64
   end

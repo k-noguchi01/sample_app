@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-include CreateToken
+include CreateTokenAndDigest
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: 'Relationship',

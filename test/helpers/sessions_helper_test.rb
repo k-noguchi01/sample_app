@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+include CreateTokenAndDigest
 
 class SessionsHelperTest < ActionView::TestCase
   def setup
@@ -14,7 +15,7 @@ class SessionsHelperTest < ActionView::TestCase
   end
 
   test 'current_user returns nil when remember digest is wrong' do
-    @user.update_attribute(:remember_digest, User.digest(User.new_token))
+    @user.update_attribute(:remember_digest, User.digest(create_token_by_base64))
     assert_nil current_user
   end
 end
