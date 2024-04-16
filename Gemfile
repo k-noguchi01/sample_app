@@ -19,7 +19,6 @@ gem "stimulus-rails",  "1.2.1"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.8"
 gem "bootsnap",        "1.16.0", require: false
-gem "sqlite3",         "1.6.1"
 
 group :development, :test do
   gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
@@ -30,6 +29,7 @@ group :development do
   gem "solargraph",          "0.50.0"
   gem "irb",                 "1.10.0"
   gem "repl_type_completor", "0.1.2"
+  gem "pg", "1.3.5"
 end
 
 group :test do
