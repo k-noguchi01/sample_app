@@ -297,6 +297,15 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.31.2)
       parser (>= 3.3.0.4)
+    rubocop-rails (2.24.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    ruby-lsp (0.14.0)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 0.19.0, < 0.22)
+      sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.1)
       ffi (~> 1.12)
@@ -330,6 +339,7 @@ GEM
       thor (~> 1.0)
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
+    sorbet-runtime (0.5.11346)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -406,6 +416,9 @@ DEPENDENCIES
   rails (= 7.0.4.3)
   rails-controller-testing (= 1.0.5)
   repl_type_completor (= 0.1.2)
+  rubocop
+  rubocop-rails
+  ruby-lsp
   sassc-rails (= 2.1.2)
   selenium-webdriver (= 4.8.3)
   solargraph (= 0.50.0)
