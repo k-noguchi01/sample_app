@@ -1,21 +1,31 @@
 version: '3.8'
 services:
   db:
-    image: postgres:12
+    # postgresql 13.9
+    image: postgres:13.9
+    # port
     ports:
-      - '5432'
+      - 5432
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
+      # account info
       - POSTGRES_DB=postgres
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-  web:
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+  app:
     build:
       dockerfile: Dockerfile
+    tty: true
+    # start command
     command: rails s -p 3001 -b '0.0.0.0'
+    # volumes
     volumes:
       - .:/myapp
     depends_on:
       - db
     ports:
       - "3001:3001"
+volumes:
+  postgres_volume:
