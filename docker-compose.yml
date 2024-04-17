@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+  nginx:
+    container_name: nginx
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - app
   db:
     # postgresql 13.9
     image: postgres:13.9
