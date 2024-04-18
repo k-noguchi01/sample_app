@@ -9,6 +9,10 @@ services:
       - 80:80
     depends_on:
       - app
+  redis:
+    image: redis:6.0.5-alpine
+    volumes:
+      - redisdatastore:/data
   db:
     # postgresql 13.9
     image: postgres:13.9
@@ -21,6 +25,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
+      - REDIS_URL = redis://redis:6379/0
     volumes:
       - postgres_volume:/var/lib/postgresql/data
   app:
@@ -31,10 +36,12 @@ services:
     command: rails s -p 3001 -b '0.0.0.0'
     # volumes
     volumes:
-      - .:/myapp
+      - .:/sample_app
     depends_on:
       - db
+      - redis
     ports:
       - "3001:3001"
 volumes:
   postgres_volume:
+  redisdatastore:
