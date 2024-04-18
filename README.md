@@ -33,3 +33,29 @@ $ rails test
 
 詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
 を参考にしてください。
+# Dockerインフラ構成
+```mermaid
+flowchart LR
+    USER[USER]
+    WEBS[Nginx]
+    APS[Puma]
+    RDS[Postgresql]
+    Redis[Redis]
+
+    subgraph GC[Docker]
+        WEBS
+        APS
+        RDS    
+        Redis
+    end
+
+    USER-->|80|WEBS
+    WEBS-->USER
+    WEBS-->|3001|APS
+    APS-->WEBS
+    APS-->|5432|RDS
+    APS-->Redis
+    RDS-->APS
+    RDS-->Redis
+    Redis-->RDS
+```
