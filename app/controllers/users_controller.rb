@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user=User.new
   end
 
-  def destro
+  def destroy
     User.find(params[:id]).destroy
     flash[:success]="User deleted"
     redirect_to users_url,status: :see_other
